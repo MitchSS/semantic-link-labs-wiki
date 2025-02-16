@@ -69,10 +69,26 @@ from sempy_labs import admin
 admin.list_activity_events(start_time="2025-02-15T07:55:00", end_time="2025-02-15T08:55:00", activity_filter="viewreport")
 ```
 
-[Show tenant settings(https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.admin.html#sempy_labs.admin.list_tenant_settings)
+[Show tenant settings](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.admin.html#sempy_labs.admin.list_tenant_settings)
 ```python
 from sempy_labs import admin
 admin.list_tenant_settings()
+```
+
+[Show tables within a lakehouse](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.lakehouse.html#sempy_labs.lakehouse.get_lakehouse_tables)
+```python
+import sempy_labs.lakehouse as lake
+lakehouse = None
+workspace = None
+lake.get_lakehouse_tables(lakehouse=lakehouse, workspace=workspace)
+```
+
+[Show columns within all tables within a lakehouse](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.lakehouse.html#sempy_labs.lakehouse.get_lakehouse_columns)
+```python
+import sempy_labs.lakehouse as lake
+lakehouse = None
+workspace = None
+lake.get_lakehouse_columns(lakehouse=lakehouse, workspace=workspace)
 ```
 
 
