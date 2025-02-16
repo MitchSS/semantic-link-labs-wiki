@@ -23,6 +23,21 @@ workspace = None # Enter the name or ID of the workspace in which the semantic m
 labs.vertipaq_analyzer(dataset=dataset, workspace=workspace)
 ```
 
+[Refresh a semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.refresh_semantic_model)
+```python
+import sempy_labs as labs
+
+dataset = '' # Enter the name or ID of your semantic model
+workspace = None # Enter the name or ID of the workspace in which the semantic model resides
+
+labs.refresh_semantic_model(dataset=dataset, workspace=workspace)
+labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Sales', 'Geography'])
+labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Geography', 'Calendar'], partitions = ["'Sales'[SalesFY2025]", "'Sales'[SalesFY2025]")
+labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True)
+```
+
+#### Tabular Object Model (TOM)
+
 [Connecting to the Tabular Object Model (TOM)](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.tom.html#sempy_labs.tom.connect_semantic_model)
 ```python
 from sempy_labs.tom import connect_semantic_model
@@ -36,17 +51,20 @@ with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=True)
           print(f"'{t.Name}'[{c.Name}]")
 ```
 
-[Refresh a semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.refresh_semantic_model)
+Set and read Vertipaq annotations
 ```python
-import sempy_labs as labs
+from sempy_labs.tom import connect_semantic_model
 
 dataset = '' # Enter the name or ID of your semantic model
 workspace = None # Enter the name or ID of the workspace in which the semantic model resides
 
-labs.refresh_semantic_model(dataset=dataset, workspace=workspace)
-labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Sales', 'Geography'])
-labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Geography', 'Calendar'], partitions = ["'Sales'[SalesFY2025]", "'Sales'[SalesFY2025]")
-labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True)
+with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=False) as tom:
+   tom.set_vertipaq_annotations()
+
+with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=True) as tom:
+   for t in tom.model.Tables:
+      print(f"{t.Name} : {tom.total_size(object=t)}")
+
 ```
 
 #### Direct Lake
