@@ -50,22 +50,6 @@ labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True
 ```
 
 ### Admin
-[Show connections](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.list_connections)
-```python
-import sempy_labs as labs
-
-labs.list_connections()
-```
-
-[Show shortcuts](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.list_shortcuts)
-```python
-import sempy_labs as labs
-
-workspace = None # Enter the name or ID of the workspace
-
-labs.list_shortcuts(workspace=workspace)
-```
-
 [Show activity events](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.admin.html#sempy_labs.admin.list_activity_events)
 ```python
 from sempy_labs import admin
@@ -78,6 +62,23 @@ admin.list_activity_events(start_time="2025-02-15T07:55:00", end_time="2025-02-1
 from sempy_labs import admin
 
 admin.list_tenant_settings()
+```
+
+[Show connections](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.list_connections)
+```python
+import sempy_labs as labs
+
+labs.list_connections()
+```
+
+# Lakehouses
+[Show shortcuts](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.list_shortcuts)
+```python
+import sempy_labs as labs
+
+workspace = None # Enter the name or ID of the workspace
+
+labs.list_shortcuts(workspace=workspace)
 ```
 
 [Show tables within a lakehouse](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.lakehouse.html#sempy_labs.lakehouse.get_lakehouse_tables)
