@@ -86,7 +86,10 @@ directlake.update_direct_lake_model_connection(dataset=dataset, workspace=worksp
 ```python
 from sempy_labs import admin
 
-admin.list_activity_events(start_time="2025-02-15T07:55:00", end_time="2025-02-15T08:55:00", activity_filter="viewreport")
+start_time = "2025-02-15T07:55:00"
+end_time = "2025-02-15T08:55:00"
+activity_filter = "viewreport"
+admin.list_activity_events(start_time=start_time, end_time=end_time, activity_filter=activity_filter)
 ```
 
 [Show tenant settings](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.admin.html#sempy_labs.admin.list_tenant_settings)
@@ -117,8 +120,8 @@ labs.list_shortcuts(workspace=workspace)
 ```python
 import sempy_labs.lakehouse as lake
 
-lakehouse = None
-workspace = None
+lakehouse = None # Enter the name or ID of the lakehouse
+workspace = None # Enter the name or ID of the workspace in which the lakehouse exists
 
 lake.get_lakehouse_tables(lakehouse=lakehouse, workspace=workspace)
 ```
@@ -127,8 +130,8 @@ lake.get_lakehouse_tables(lakehouse=lakehouse, workspace=workspace)
 ```python
 import sempy_labs.lakehouse as lake
 
-lakehouse = None
-workspace = None
+lakehouse = None # Enter the name or ID of the lakehouse
+workspace = None # Enter the name or ID of the workspace in which the lakehouse exists
 
 lake.get_lakehouse_columns(lakehouse=lakehouse, workspace=workspace)
 ```
