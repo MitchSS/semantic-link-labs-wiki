@@ -91,4 +91,13 @@ workspace = None
 lake.get_lakehouse_columns(lakehouse=lakehouse, workspace=workspace)
 ```
 
+[Rebind a report to a different semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.report.html#sempy_labs.report.report_rebind)
+```python
+import sempy_labs.report as rep
+report = '' # Name or ID of the report
+dataset = '' # Name or ID of the semantic model to bind to the report
+report_workspace = None # Name or ID of the workspace in which the report resides
+dataset_workspace = None # Name or ID of the workspace in which the semantic model resides
+rep.rebind_report(report=report, dataset=dataset, report_workspace=report_workspace, dataset_workspace=dataset_workspace)
+```
 
