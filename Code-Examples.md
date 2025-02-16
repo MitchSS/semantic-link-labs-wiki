@@ -49,6 +49,20 @@ labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Geo
 labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True)
 ```
 
+#### Direct Lake
+[Update the connection of a Direct Lake semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.directlake.html#sempy_labs.directlake.update_direct_lake_model_connection)
+```python
+from sempy_labs import directlake
+
+dataset = '' # Enter the name or ID of your semantic model
+workspace = None # Enter the name or ID of the workspace in which the semantic model resides
+source = 'MyLakehouse' # The name or ID of the lakehouse/warehouse
+source_type = "Lakehouse" # Can either be 'Lakehouse' or 'Warehouse'
+source_workspace = 'MyLakehouseWorkspace' # Enter the name or ID of the workspace in which the lakehouse/warehouse exists
+
+directlake.update_direct_lake_model_connection(dataset=dataset, workspace=workspace, source=source, source_type=source_type, source_workspace=source_workspace)
+```
+
 ### Admin
 [Show activity events](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.admin.html#sempy_labs.admin.list_activity_events)
 ```python
