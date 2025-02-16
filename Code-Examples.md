@@ -71,7 +71,7 @@ import sempy_labs as labs
 labs.list_connections()
 ```
 
-# Lakehouses
+### Lakehouses
 [Show shortcuts](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.list_shortcuts)
 ```python
 import sempy_labs as labs
