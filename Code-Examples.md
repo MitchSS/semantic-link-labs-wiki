@@ -107,15 +107,6 @@ labs.list_connections()
 ```
 
 ### Lakehouses
-[Show shortcuts](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.list_shortcuts)
-```python
-import sempy_labs as labs
-
-workspace = None # Enter the name or ID of the workspace
-
-labs.list_shortcuts(workspace=workspace)
-```
-
 [Show tables within a lakehouse](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.lakehouse.html#sempy_labs.lakehouse.get_lakehouse_tables)
 ```python
 import sempy_labs.lakehouse as lake
@@ -135,6 +126,30 @@ workspace = None # Enter the name or ID of the workspace in which the lakehouse 
 
 lake.get_lakehouse_columns(lakehouse=lakehouse, workspace=workspace)
 ```
+
+[Show shortcuts](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.list_shortcuts)
+```python
+import sempy_labs as labs
+
+workspace = None # Enter the name or ID of the workspace
+
+labs.list_shortcuts(workspace=workspace)
+```
+
+[Create a OneLake shortcut](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.lakehouse.html#sempy_labs.lakehouse.create_shortcut_onelake)
+```python
+import sempy_labs.lakehouse as lake
+
+table_name = 'MyTable' # Enter the name of the table on which the shortcut will be based
+source_lakehouse = 'MyLakehouse1' # Enter the name of the lakehouse in which the table exists
+source_workspace = 'MyLakehouse1Workspace' # Enter the name of the workspace in which the source lakehouse exists
+destination_lakehouse = 'MyLakehouse2' # Enter the name of the lakehouse in which the shortcut will be created
+destination_workspace = 'MyLakehouse2Workspace' # Enter the name of the workspace in which the destination lakehouse exists
+shortcut_name = None # Enter the name of the shortcut which will be created. By default it is named after the table_name
+
+lake.create_shortcut_onelake(table_name=table_name, source_lakehouse=source_lakehouse, source_workspace=source_workspace, destination_lakehouse=destination_lakehouse, destination_workspace=destination_workspace, shortcut_name=shortcut_name)
+```
+
 
 ### Reports
 [Rebind a report to a different semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.report.html#sempy_labs.report.report_rebind)
