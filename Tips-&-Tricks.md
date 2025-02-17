@@ -3,6 +3,9 @@ Here are some tips & tricks when working with Semantic Link Labs!
 # Scripts
 * Check out the following [GitHub repo](https://github.com/m-kovalsky/Fabric) for useful scripts for Semantic Link & Semantic Link Labs
 
+# Semantic Link vs Semantic Link Labs
+* Semantic Link Labs is intended to be used in conjunction with Semantic Link. Semantic Link Labs does not replace Semantic Link and the functions in Semantic Link Labs are net new to what exists in Semantic Link (at least at the time they were built). The goal is for Semantic Link Labs to serve as a constant 'public preview' and that when ready, functions will move into Semantic Link. Therefore, you may find functions exist in both libraries but that is likely because the functions have been assimilated from Semantic Link Labs to Semantic Link.
+
 # Importing
 * When importing the library and packages, make sure to follow [this standard](https://github.com/microsoft/semantic-link-labs?tab=readme-ov-file#once-installed-run-this-code-to-import-the-library-into-your-notebook) as it is aligned with the documentation and keeps things simple. The reason for following the recommendation below is that functions may be reorganized to different files. In that case, if you were using the first snippet (shown below) your code would break. The second code snippet (shown below) would not be impacted and is therefore more robust.
 
