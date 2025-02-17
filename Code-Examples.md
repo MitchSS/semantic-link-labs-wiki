@@ -1,7 +1,7 @@
 Here are some code examples which should help you get off to a quick start using this Python library. This library was designed to reduce the technical barrier to entry for complex tasks and give such power to any user - technical or not. As you can see, a great deal can be achieved through simply entering in a few parameters to the function of your choice. No real coding is necessary to gain value using this approach.
 
 
-### Semantic Modeling
+# Semantic Modeling
 [Best Practice Analyzer](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.run_model_bpa)
 ```python
 import sempy_labs as labs
@@ -36,7 +36,7 @@ labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Geo
 labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True)
 ```
 
-#### Tabular Object Model (TOM)
+## Tabular Object Model (TOM)
 
 [Connecting to the Tabular Object Model (TOM)](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.tom.html#sempy_labs.tom.connect_semantic_model)
 ```python
@@ -67,7 +67,7 @@ with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=True)
 
 ```
 
-#### Direct Lake
+## Direct Lake
 [Update the connection of a Direct Lake semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.directlake.html#sempy_labs.directlake.update_direct_lake_model_connection)
 ```python
 from sempy_labs import directlake
@@ -81,7 +81,7 @@ source_workspace = 'MyLakehouseWorkspace' # Enter the name or ID of the workspac
 directlake.update_direct_lake_model_connection(dataset=dataset, workspace=workspace, source=source, source_type=source_type, source_workspace=source_workspace)
 ```
 
-### Admin
+# Admin
 [Show activity events](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.admin.html#sempy_labs.admin.list_activity_events)
 ```python
 from sempy_labs import admin
@@ -106,7 +106,7 @@ import sempy_labs as labs
 labs.list_connections()
 ```
 
-### Lakehouses
+# Lakehouses
 [Show tables within a lakehouse](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.lakehouse.html#sempy_labs.lakehouse.get_lakehouse_tables)
 ```python
 import sempy_labs.lakehouse as lake
@@ -151,7 +151,7 @@ lake.create_shortcut_onelake(table_name=table_name, source_lakehouse=source_lake
 ```
 
 
-### Reports
+# Reports
 [Rebind a report to a different semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.report.html#sempy_labs.report.report_rebind)
 ```python
 import sempy_labs.report as rep
