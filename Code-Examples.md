@@ -46,9 +46,9 @@ dataset = '' # Enter the name or ID of your semantic model
 workspace = None # Enter the name or ID of the workspace in which the semantic model resides
 
 with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=True) as tom:
-   for t in tom.model.Tables:
-       for c in t.Columns:
-          print(f"'{t.Name}'[{c.Name}]")
+    for t in tom.model.Tables:
+        for c in t.Columns:
+            print(f"'{t.Name}'[{c.Name}]")
 ```
 
 Set and read Vertipaq annotations
@@ -59,11 +59,11 @@ dataset = '' # Enter the name or ID of your semantic model
 workspace = None # Enter the name or ID of the workspace in which the semantic model resides
 
 with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=False) as tom:
-   tom.set_vertipaq_annotations()
+    tom.set_vertipaq_annotations()
 
 with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=True) as tom:
-   for t in tom.model.Tables:
-      print(f"{t.Name} : {tom.total_size(object=t)}")
+    for t in tom.model.Tables:
+        print(f"{t.Name} : {tom.total_size(object=t)}")
 
 ```
 
