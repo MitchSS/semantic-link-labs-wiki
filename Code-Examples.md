@@ -39,6 +39,39 @@ labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Sal
 labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Geography', 'Calendar'], partitions = ["'Sales'[SalesFY2025]", "'Sales'[SalesFY2025]") # Refresh specific tables and specific partitions
 labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True) # See a visual representation of your refresh in real time.
 ```
+[Backup a semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.backup_semantic_model)
+```python
+import sempy_labs as labs
+
+dataset = '' # Enter the name or ID of your semantic model
+backup_name = '' # Enter the name backup file
+
+
+labs.backup_semantic_model(
+    dataset=dataset,
+    file_path=f'{backup_name}.abf',
+    allow_overwrite=True, # If True, overwrites backup files of the same name. If False, the file you are saving cannot have the same name as a file that already exists in the same location.
+    apply_compression=True, # If True, compresses the backup file. Compressed backup files save disk space, but require slightly higher CPU utilization.
+    workspace=None # The Fabric workspace name or ID. Defaults to None which resolves to the workspace of the attached lakehouse or if no lakehouse attached, resolves to the workspace of the notebook.
+)
+```
+[Restore a semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.restore_semantic_model)
+```python
+import sempy_labs as labs
+
+dataset_name = '' # Enter the name of your semantic model
+backup_name = '' # Enter the name backup file
+
+
+labs.restore_semantic_model(
+    dataset=dataset_name,
+    file_path=f"{backup_name}.abf",
+    allow_overwrite=True, # If True, overwrites backup files of the same name. If False, the file you are saving cannot have the same name as a file that already exists in the same location.
+    ignore_incompatibilities=True, # If True, ignores incompatibilities between Azure Analysis Services and Power BI Premium.
+    workspace=None, # The Fabric workspace name or ID. Defaults to None which resolves to the workspace of the attached lakehouse or if no lakehouse attached, resolves to the workspace of the notebook.
+    force_restore=True, # If True, restores the semantic model with the existing semantic model unloaded and offline.
+)
+```
 
 ## Tabular Object Model (TOM)
 
