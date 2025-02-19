@@ -14,7 +14,7 @@ dataset = '' # Enter the name or ID of your semantic model
 workspace = None # Enter the name or ID of the workspace in which the semantic model resides
 
 labs.run_model_bpa(dataset=dataset, workspace=workspace)
-labs.run_model_bpa(dataset=dataset, workspace=workspace, extended=True)
+labs.run_model_bpa(dataset=dataset, workspace=workspace, extended=True) # Setting extended=True will fetch Vertipaq Analyzer statistics and use them to run advanced BPA rules against your model
 ```
 
 [Vertipaq Analyzer](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.vertipaq_analyzer)
@@ -34,10 +34,10 @@ import sempy_labs as labs
 dataset = '' # Enter the name or ID of your semantic model
 workspace = None # Enter the name or ID of the workspace in which the semantic model resides
 
-labs.refresh_semantic_model(dataset=dataset, workspace=workspace)
-labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Sales', 'Geography'])
-labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Geography', 'Calendar'], partitions = ["'Sales'[SalesFY2025]", "'Sales'[SalesFY2025]")
-labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True)
+labs.refresh_semantic_model(dataset=dataset, workspace=workspace) # Refresh the entire semantic model
+labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Sales', 'Geography']) # Refresh just specific tables
+labs.refresh_semantic_model(dataset=dataset, workspace=workspace, tables = ['Geography', 'Calendar'], partitions = ["'Sales'[SalesFY2025]", "'Sales'[SalesFY2025]") # Refresh specific tables and specific partitions
+labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True) # See a visual representation of your refresh in real time.
 ```
 
 ## Tabular Object Model (TOM)
@@ -52,7 +52,7 @@ workspace = None # Enter the name or ID of the workspace in which the semantic m
 with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=True) as tom:
     for t in tom.model.Tables:
         for c in t.Columns:
-            print(f"'{t.Name}'[{c.Name}]")
+            print(f"'{t.Name}'[{c.Name}]") # Print the names of all tables/columns in the model
 ```
 
 Set and read Vertipaq annotations
@@ -67,7 +67,7 @@ with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=False
 
 with connect_semantic_model(dataset=dataset, workspace=workspace, readonly=True) as tom:
     for t in tom.model.Tables:
-        print(f"{t.Name} : {tom.total_size(object=t)}")
+        print(f"{t.Name} : {tom.total_size(object=t)}") # Shows the total size (in bytes) of each table in your semantic model
 
 ```
 
