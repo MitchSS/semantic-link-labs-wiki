@@ -1,5 +1,9 @@
 Here are some code examples which should help you get off to a quick start using this Python library. This library was designed to reduce the technical barrier to entry for complex tasks and give such power to any user - technical or not. As you can see, a great deal can be achieved through simply entering in a few parameters to the function of your choice. No real coding is necessary to gain value using this approach.
 
+# Install semantic link labs in your notebook
+```python
+%pip install semantic-link-labs
+```
 
 # Semantic Modeling
 [Best Practice Analyzer](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.run_model_bpa)
