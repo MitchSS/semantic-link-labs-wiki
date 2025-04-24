@@ -44,31 +44,43 @@ labs.refresh_semantic_model(dataset=dataset, workspace=workspace, visualize=True
 import sempy_labs as labs
 
 dataset = '' # Enter the name or ID of your semantic model
-backup_name = '' # Enter the name backup file
+workspace = None # Enter the name or ID of the workspace in which the semantic model resides
+backup_name = '' # Enter the name or path of the backup file
 
+#Optional
+key_vault_uri= '' # Enter the Key Vault URI which contains the secret for the password for the backup
+key_vault_password='' # Enter the secret name which contains the password for the backup
+backup_password = mssparkutils.credentials.getSecret(key_vault_uri,key_vault_password)
 
 labs.backup_semantic_model(
     dataset=dataset,
     file_path=f'{backup_name}.abf',
+    password=backup_password, # Set to None if no password is required
     allow_overwrite=True, # If True, overwrites backup files of the same name. If False, the file you are saving cannot have the same name as a file that already exists in the same location.
     apply_compression=True, # If True, compresses the backup file. Compressed backup files save disk space, but require slightly higher CPU utilization.
-    workspace=None # The Fabric workspace name or ID. Defaults to None which resolves to the workspace of the attached lakehouse or if no lakehouse attached, resolves to the workspace of the notebook.
+    workspace=workspace,
 )
 ```
 [Restore a semantic model](https://semantic-link-labs.readthedocs.io/en/stable/sempy_labs.html#sempy_labs.restore_semantic_model)
 ```python
 import sempy_labs as labs
 
-dataset_name = '' # Enter the name of your semantic model
-backup_name = '' # Enter the name backup file
+dataset = '' # Enter the name or ID of your semantic model
+workspace = None # Enter the name or ID of the workspace in which the semantic model resides
+backup_name = '' # Enter the name or path of the backup file
 
+#Optional
+key_vault_uri= '' # Enter the Key Vault URI which contains the secret for the password for the backup
+key_vault_password='' # Enter the secret name which contains the password for the backup
+backup_password = mssparkutils.credentials.getSecret(key_vault_uri,key_vault_password)
 
 labs.restore_semantic_model(
     dataset=dataset_name,
     file_path=f"{backup_name}.abf",
+    password=backup_password,# Set to None if no password is required
     allow_overwrite=True, # If True, overwrites backup files of the same name. If False, the file you are saving cannot have the same name as a file that already exists in the same location.
     ignore_incompatibilities=True, # If True, ignores incompatibilities between Azure Analysis Services and Power BI Premium.
-    workspace=None, # The Fabric workspace name or ID. Defaults to None which resolves to the workspace of the attached lakehouse or if no lakehouse attached, resolves to the workspace of the notebook.
+    workspace=workspace,
     force_restore=True, # If True, restores the semantic model with the existing semantic model unloaded and offline.
 )
 ```
