@@ -50,7 +50,7 @@ backup_name = '' # Enter the name or path of the backup file
 #Optional
 key_vault_uri= '' # Enter the Key Vault URI which contains the secret for the password for the backup
 key_vault_password='' # Enter the secret name which contains the password for the backup
-backup_password = mssparkutils.credentials.getSecret(key_vault_uri,key_vault_password)
+backup_password = notebookutils.credentials.getSecret(key_vault_uri,key_vault_password)
 
 labs.backup_semantic_model(
     dataset=dataset,
@@ -72,7 +72,7 @@ backup_name = '' # Enter the name or path of the backup file
 #Optional
 key_vault_uri= '' # Enter the Key Vault URI which contains the secret for the password for the backup
 key_vault_password='' # Enter the secret name which contains the password for the backup
-backup_password = mssparkutils.credentials.getSecret(key_vault_uri,key_vault_password)
+backup_password = notebookutils.credentials.getSecret(key_vault_uri,key_vault_password)
 
 labs.restore_semantic_model(
     dataset=dataset_name,
